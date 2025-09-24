@@ -79,7 +79,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, isOpen, onClose, ti
             <img
               src={images[currentIndex]}
               alt={`${title} - Screenshot ${currentIndex + 1}`}
-              className="w-full max-w-4xl h-auto max-h-[70vh] object-contain rounded-lg"
+              className="w-full max-w-4xl h-auto max-h-[50vh] md:max-h-[70vh] object-contain rounded-lg"
             />
           </div>
           
@@ -90,17 +90,17 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, isOpen, onClose, ti
           <>
             <button
               onClick={goToPrevious}
-              className="absolute left-8 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-200 hover:scale-110 border border-white/30"
+              className="absolute left-2 md:left-8 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all duration-200 hover:scale-110 border border-white/30"
               title="Previous image"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={20} className="md:w-6 md:h-6" />
             </button>
             <button
               onClick={goToNext}
-              className="absolute right-8 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-200 hover:scale-110 border border-white/30"
+              className="absolute right-2 md:right-8 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all duration-200 hover:scale-110 border border-white/30"
               title="Next image"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={20} className="md:w-6 md:h-6" />
             </button>
           </>
         )}
