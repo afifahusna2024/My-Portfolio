@@ -143,24 +143,24 @@ const Projects = () => {
               }`}
             >
               <div className="relative overflow-hidden">
-                {/* Always show image, but add text overlay for gallery projects on desktop */}
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Text overlay for gallery projects - only on desktop */}
-                {project.showAsText && (
-                  <div className="hidden md:flex absolute inset-0 bg-gradient-to-br from-purple-600/20 to-indigo-600/20 items-center justify-center border border-purple-500/30">
+                {project.showAsText ? (
+                  <div className="w-full h-48 bg-gradient-to-br from-purple-600/20 to-indigo-600/20 flex items-center justify-center border border-purple-500/30">
                     <div className="text-center p-6">
                       <div className="text-white font-semibold text-lg mb-1">{project.title}</div>
                       <div className="text-purple-300 text-sm">Click eye icon to view screenshots</div>
                     </div>
                   </div>
+                ) : (
+                  <>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </>
                 )}
-                <div className="absolute top-4 right-4 flex gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute top-4 right-4 flex gap-2 opacity-100 transition-opacity duration-300">
                   {project.hasGallery && (
                     <button
                       onClick={() => openGallery(project.galleryImages || [], project.title)}
